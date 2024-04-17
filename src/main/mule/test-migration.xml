@@ -12,6 +12,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:request-config>
 	<flow name="test-migrationFlow" doc:id="def4b4c8-c4c7-4871-b022-dbda201e3bcd" >
 		<http:listener doc:name="Listener" doc:id="d5f416cc-1c51-46e9-a421-39819ee57c47" config-ref="HTTP_Listener_config" path="/{region}/{city}"/>
+		<logger level="INFO" doc:name="Logger" doc:id="76a18ea5-4b50-43f0-9c2f-7af316008dae" message="#[output application/json&#10;---&#10;attributes]"/>
 		<http:request method="GET" doc:name="Request" doc:id="a998e684-8a05-43a7-931d-b28615730a0a" config-ref="HTTP_Request_configuration" path="/{region}/{city}">
 			<http:uri-params ><![CDATA[#[output application/java
 ---
